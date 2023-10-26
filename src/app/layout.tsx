@@ -36,7 +36,8 @@ export default function RootLayout({
       <body
           className={cn(
               inter.className,
-              "bg-indigo-50 dark:bg-indigo-950"
+              "bg-indigo-50 dark:bg-indigo-950",
+              "text-black dark:text-white"
           )}
       >
           <LayoutHeader/>

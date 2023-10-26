@@ -10,15 +10,17 @@
 
 // Internal Modules ----------------------------------------------------------
 
+import {cn} from "@/lib/utils";
+
 // Public Objects ------------------------------------------------------------
 
 export const LayoutSidebar = () => {
 
     return (
         <aside
-            className="hidden md:flex flex-col h-full w-[72px] items-center bg-indigo-200 dark:bg-indigo-800"
+            className="hidden md:flex h-full w-[72px] flex-col fixed bg-indigo-200 dark:bg-indigo-800"
         >
-            <p>Layout Sidebar</p>
+            <p>Layout Sidebar with some extra height</p>
         </aside>
     )
 

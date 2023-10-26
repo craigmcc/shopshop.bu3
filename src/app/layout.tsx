@@ -6,8 +6,9 @@
 
 // External Modules ----------------------------------------------------------
 
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import type {Metadata} from "next";
+import {Inter} from "next/font/google";
+import {ClerkProvider} from "@clerk/nextjs";
 
 // Internal Modules ----------------------------------------------------------
 
@@ -33,30 +34,32 @@ export default function RootLayout({
     children: React.ReactNode
 }) {
     return (
-        <html lang="en">
-        <ThemeProvider
-            attribute="class"
-            defaultTheme="dark"
-            enableSystem={false}
-            storageKey="shopshop-theme"
-        >
-            <body
-                className={cn(
-                    inter.className,
-                    "bg-indigo-50 dark:bg-indigo-950",
-                    "text-black dark:text-white"
-                )}
+        <ClerkProvider>
+            <html lang="en" suppressHydrationWarning>
+            <ThemeProvider
+                attribute="class"
+                defaultTheme="dark"
+                enableSystem={false}
+                storageKey="shopshop-theme"
             >
-            <LayoutHeader/>
-            <div className="h-full">
-                <LayoutSidebar/>
-                <main className="md:pl-[72px] h-full">
-                    {children}
-                </main>
-            </div>
-            <LayoutFooter/>
-            </body>
-        </ThemeProvider>
-        </html>
+                <body
+                    className={cn(
+                        inter.className,
+                        "bg-indigo-50 dark:bg-indigo-950",
+                        "text-black dark:text-white"
+                    )}
+                >
+                <LayoutHeader/>
+                <div className="h-full">
+                    <LayoutSidebar/>
+                    <main className="md:pl-[72px] h-full">
+                        {children}
+                    </main>
+                </div>
+                <LayoutFooter/>
+                </body>
+            </ThemeProvider>
+            </html>
+        </ClerkProvider>
     )
 }

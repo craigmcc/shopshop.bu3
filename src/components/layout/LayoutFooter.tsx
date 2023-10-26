@@ -1,4 +1,4 @@
-// components/layout/LayoutFooter.tsx
+// @/components/layout/LayoutFooter.tsx
 
 /**
  * Bottom-of-layout footer bar for the global layout.

@@ -1,4 +1,4 @@
-// components/layout/LayoutHeader.tsx
+// @/components/layout/LayoutHeader.tsx
 
 /**
  * Top-of-layout header bar for the global layout.
@@ -10,6 +10,8 @@
 
 // Internal Modules ----------------------------------------------------------
 
+import {ModeToggle} from "@/components/layout/ModeToggle";
+
 // Public Objects ------------------------------------------------------------
 
 export const LayoutHeader = () => {
@@ -20,6 +22,9 @@ export const LayoutHeader = () => {
         >
             <div className="flex flex-1 items-center justify-center">
                 LayoutHeader
+            </div>
+            <div className="flex flex-1 items-center justify-end p-2" suppressHydrationWarning>
+                <ModeToggle/>
             </div>
         </header>
     )

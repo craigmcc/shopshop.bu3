@@ -15,6 +15,7 @@ import "./globals.css";
 import {LayoutFooter} from "@/components/layout/LayoutFooter";
 import {LayoutHeader} from "@/components/layout/LayoutHeader";
 import {LayoutSidebar} from "@/components/layout/LayoutSidebar";
+import {ThemeProvider} from "@/components/providers/ThemeProvider";
 import {cn} from "@/lib/utils";
 
 // Public Objects ------------------------------------------------------------
@@ -22,33 +23,40 @@ import {cn} from "@/lib/utils";
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: "ShopShop",
-  description: "Shoppping List Application",
+    title: "ShopShop",
+    description: "Shoppping List Application",
 }
 
 export default function RootLayout({
-                                     children,
+                                       children,
                                    }: {
-  children: React.ReactNode
+    children: React.ReactNode
 }) {
-  return (
-      <html lang="en">
-      <body
-          className={cn(
-              inter.className,
-              "bg-indigo-50 dark:bg-indigo-950",
-              "text-black dark:text-white"
-          )}
-      >
-          <LayoutHeader/>
-          <div className="h-full">
-              <LayoutSidebar/>
-              <main className="md:pl-[72px] h-full">
-                  {children}
-              </main>
-          </div>
-          <LayoutFooter/>
-      </body>
-      </html>
-  )
+    return (
+        <html lang="en">
+        <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem={false}
+            storageKey="shopshop-theme"
+        >
+            <body
+                className={cn(
+                    inter.className,
+                    "bg-indigo-50 dark:bg-indigo-950",
+                    "text-black dark:text-white"
+                )}
+            >
+            <LayoutHeader/>
+            <div className="h-full">
+                <LayoutSidebar/>
+                <main className="md:pl-[72px] h-full">
+                    {children}
+                </main>
+            </div>
+            <LayoutFooter/>
+            </body>
+        </ThemeProvider>
+        </html>
+    )
 }

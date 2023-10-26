@@ -1,4 +1,4 @@
-// components/layout/LayoutHeader.tsx
+// @/components/layout/LayoutHeader.tsx
 
 /**
  * Side-of-layout menu bar for the global layout.
